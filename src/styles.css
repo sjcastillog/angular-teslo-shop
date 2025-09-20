@@ -3,3 +3,10 @@
 @plugin "daisyui" {
   themes: night --default, night --prefersdark;
 }
+/* @layer base {
+  @font-face {
+    font-family: "Monserrat";
+    src: url("/assets/fonts/monserrat-alternates/Monserrat-Medium.ttf")
+    format("truetype")
+  }
+} */
