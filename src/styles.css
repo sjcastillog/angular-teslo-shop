@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+@import 'tailwindcss';
 @font-face {
-  font-family: 'MiFuenteCustom';
-  src: url('./assets/fonts/mi-fuente.woff2') format('woff2');
+  font-family: 'monserrat';
+  src: url('../public/assets/fonts/monserrat-alternates/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'lobster-regular';
+  src: url('../public/assets/fonts/lobster/LobsterTwo-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -10,10 +17,40 @@
 @plugin "daisyui" {
   themes: night --default, night --prefersdark;
 }
-/* @layer base {
-  @font-face {
-    font-family: "Monserrat";
-    src: url("/assets/fonts/monserrat-alternates/Monserrat-Medium.ttf")
-    format("truetype")
+
+@theme {
+  --font-monserrat: 'monserrat', sans-serif;
+  --font-lobster-regular: 'lobster-regular', sans-serif;
+  --animate-fadeIn: fadeIn 0.3s ease-in-out;
+
+  /* Keyframes */
+  --keyframes-fadeIn: {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-} */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@utility font-monserrat {
+  font-family: var(--font-monserrat);
+}
+
+@utility font-lobster-regular {
+  font-family: var(--font-lobster-regular);
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
