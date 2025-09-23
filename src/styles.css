@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@font-face {
+  font-family: 'MiFuenteCustom';
+  src: url('./assets/fonts/mi-fuente.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @plugin "daisyui" {
   themes: night --default, night --prefersdark;
 }
