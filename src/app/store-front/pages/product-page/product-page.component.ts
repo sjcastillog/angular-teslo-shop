@@ -2,10 +2,12 @@ import { ProductsService } from '@/produtcs/services/products.service';
 import { Component, inject, input } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
+import { ValueEmptyPipe } from "../../../common/pipes/";
+import { ProductCarouselComponent } from "@/produtcs/components/product-carousel/product-carousel.component";
 
 @Component({
   selector: 'app-product-page',
-  imports: [],
+  imports: [ValueEmptyPipe, ProductCarouselComponent],
   templateUrl: './product-page.component.html',
 })
 export class ProductPageComponent {
