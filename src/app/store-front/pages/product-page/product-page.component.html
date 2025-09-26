@@ -10,13 +10,13 @@
 @if(productResource.hasValue()){
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" >
 
-    <product-carousel [images]="productResource.value()?.images ?? []"/>
+    <product-carousel [images]="productResource.value().images"/>
     <div>
-        <h2 class="text-2xl font-bold">{{ productResource.value()?.title | valueEmpty}}</h2>
+        <h2 class="text-2xl font-bold">{{ productResource.value().title | valueEmpty}}</h2>
         <div class="divider"></div>
 
         <p>
-            {{ productResource.value()?.description  | valueEmpty }}
+            {{ productResource.value().description  | valueEmpty }}
         </p>
     </div>
 </div>

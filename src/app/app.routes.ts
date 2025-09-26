@@ -14,6 +14,13 @@ export const routes: Routes = [
     // TODO: implementar guards
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin-dashboard/admin-dashboard.routes'),
+    canMatch: [
+      NotAuthenticatedGuard
+    ]
+  },
+  {
     path: '',
     loadChildren: () => import('./store-front/store-front.routes'),
   },

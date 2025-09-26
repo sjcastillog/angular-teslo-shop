@@ -1,3 +1,4 @@
+import { NewUserI } from '@/auth/interfaces';
 import { AuthService } from '@/auth/services/auth.service';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -9,7 +10,6 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './register-page.component.html',
 })
 export class RegisterPageComponent {
-
   fb = inject(FormBuilder);
   authService = inject(AuthService);
   router = inject(Router);
@@ -18,7 +18,7 @@ export class RegisterPageComponent {
   isPosting = signal(false);
 
   loginForm = this.fb.group({
-    fullName:['', [Validators.required, Validators.minLength(6)]],
+    fullName: ['', [Validators.required, Validators.minLength(6)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
@@ -32,9 +32,14 @@ export class RegisterPageComponent {
       return;
     }
 
-    const {fullName='', email = '', password = '' } = this.loginForm.value;
+    const { fullName = '', email = '', password = '' } = this.loginForm.value;
+    const objNewUser = {
+      fullName,
+      email,
+      password,
+    } as NewUserI;
 
-    this.authService.register(fullName!, email!, password!).subscribe((isAuthenticated) => {
+    this.authService.register(objNewUser).subscribe((isAuthenticated) => {
       if (isAuthenticated) {
         this.router.navigateByUrl('/');
         return;
@@ -46,5 +51,4 @@ export class RegisterPageComponent {
       }, 2000);
     });
   }
-  
 }
