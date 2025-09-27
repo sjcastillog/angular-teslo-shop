@@ -12,8 +12,9 @@ export const NotAuthenticatedGuard: CanMatchFn = async(
     const router = inject(Router);
 
     const isAuthenticated = await firstValueFrom(authService.checkStatus());
+    console.log(isAuthenticated)
 
-    if(isAuthenticated){
+    if(!isAuthenticated){
         // Si esta autenticado o si hay un token lo saca de la ruta auth/**  y lo manda a la raiz /
         // regresa true si quieres que continue o un false para no dejarlo pasar
         router.navigateByUrl('/')
